@@ -2,10 +2,10 @@ class Log {
 
     constructor({ username, id }) {
 
-        this.username = username;
         this._id = id;
-        this.log = [];
+        this.username = username;
         this.count = 0;
+        this.log = [];
     }
 
     add({ description, duration, date }) {
@@ -42,7 +42,12 @@ class Log {
         if (limit)
             log = log.sort((a, b) => new Date(a.date) - new Date(b.date)).slice(0, limit);
 
-        return { ...this, log, count: log.length };
+        return { 
+            _id: this._id,
+            username: this.username,
+            count: log.length,
+            log 
+        };
             
     }
 }
