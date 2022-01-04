@@ -13,7 +13,7 @@ function handleRetrieveUserLog(req, res, next) {
 
     log = log.retrieve({ from, to, limit });
     user.count = log.length;
-    user.log = log;
+    user.log = log.log;
 
     res.json(user);
 }
