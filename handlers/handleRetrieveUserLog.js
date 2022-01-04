@@ -1,21 +1,15 @@
 const logCollection = require('../collections/LogCollection');
-const userCollection = require('../collections/UserCollection');
 
 function handleRetrieveUserLog(req, res, next) {
 
     const userId = req.params['_id'];
-    let log = logCollection.findLogByUserId(userId)[0];
-    const user = { ...userCollection.findById(userId)[0] };
+    const log = logCollection.findLogByUserId(userId)[0];
 
     const from = req.query['from'];
     const to = req.query['to'];
     const limit = req.query['limit'];
 
-    log = log.retrieve({ from, to, limit });
-    user.count = log.log.length;
-    user.log = log.log;
-
-    res.json(user);
+    res.json(log.retrieve({ from, to, limit }));
 }
 
 module.exports = handleRetrieveUserLog;
