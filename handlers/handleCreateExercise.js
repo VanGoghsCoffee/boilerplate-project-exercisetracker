@@ -12,7 +12,7 @@ function handleCreateExercise(req, res, next) {
     const duration = req.body['duration'];
     let date = req.body['date'];
 
-    if (date === '')
+    if (date === '' || date === undefined)
         date = Date.now();
 
     const exercise = new ExerciseBuilder()
