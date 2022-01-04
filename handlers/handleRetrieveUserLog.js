@@ -12,7 +12,7 @@ function handleRetrieveUserLog(req, res, next) {
     const limit = req.query['limit'];
 
     log = log.retrieve({ from, to, limit });
-    user.count = log.length;
+    user.count = log.log.length;
     user.log = log.log;
 
     res.json(user);
