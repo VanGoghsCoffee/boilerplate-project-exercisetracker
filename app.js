@@ -7,8 +7,8 @@ const handleCreateExercise = require('./handlers/handleCreateExercise');
 const handleRetrieveUserLog = require('./handlers/handleRetrieveUserLog');
 
 const app = express();
-app.use(logRequests);
 app.use(bodyParser.urlencoded({ extended: false }));
+app.use(logRequests);
 
 app.route("/api/users")
     .post(handleCreateUser)
