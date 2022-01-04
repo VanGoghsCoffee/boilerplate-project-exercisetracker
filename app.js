@@ -17,7 +17,7 @@ app.route("/api/users")
 app.route("/api/users/:_id/exercises")
     .post(handleCreateExercise);
 
-app.route("/api/users/:_id/logs")
+app.route("/api/users/:id/logs")
     .get(handleRetrieveUserLog);
 
 module.exports = app;
